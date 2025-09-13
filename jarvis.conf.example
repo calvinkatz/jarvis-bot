@@ -1,0 +1,12 @@
+[bot]
+token = token_from_discord
+
+[comfyui]
+address = 127.0.0.1:8188
+checkpoint = ilustmix_v9.safetensors
+model_dir = /opt/ComfyUI/models/checkpoints/jarvis
+
+[ollama]
+address = 127.0.0.1:11434
+model = llama3:latest
+temperature = 0.4
