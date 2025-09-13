@@ -44,10 +44,10 @@ python3 bot.py
 
 ## Bot Commands
 
-* !jarvis <positive>|<negative>
+* !jarvis positive|negative
     * Sends prompt straight to ComfyUI for processing
     * Negative is optional, pipe "|" delimiter
-* !prompt <text>
+* !prompt text
     * Sends text to Ollama for processing then ComfyUI
     * Does not process negatives yet (after pipe "|")
 * !checkpoint
