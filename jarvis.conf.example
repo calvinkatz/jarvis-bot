@@ -3,8 +3,9 @@ token = token_from_discord
 
 [comfyui]
 address = 127.0.0.1:8188
-checkpoint = ilustmix_v9.safetensors
+checkpoint = sdxl.safetensors
 model_dir = /opt/ComfyUI/models/checkpoints/jarvis
+negative = negative prompt
 
 [ollama]
 address = 127.0.0.1:11434

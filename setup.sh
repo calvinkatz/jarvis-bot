@@ -10,23 +10,21 @@ if [ ! -d prompts ]; then
   mkdir prompts
 fi
 
-if [ ! -f .token ]; then
-  echo "App token missing!"
-  echo -n "Enter token: "
-  read -s TOKEN
-  echo $TOKEN > .token
-fi
-
 if [ ! -d venv ]; then
   echo "Creating venv..."
   python3 -m venv venv
 fi
+
+cp jarvis.conf.example jarvis.conf
+cp system.txt.example system.txt
 
 echo "Updating venv..."
 source venv/bin/activate
 pip install -U -r requirements.txt
 deactivate
 
-echo ""
-echo "Copy and edit the config file to complete: jarvis.conf.example -> jarvis.conf"
-echo "Done!"
+echo " "
+echo "Edit files to complete setup:"
+echo "  jarvis.conf - Bot configuration"
+echo "  system.txt  - Ollama system prompt"
+echo " "

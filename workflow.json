@@ -1,7 +1,7 @@
 {
   "4": {
     "inputs": {
-      "ckpt_name": "ponyxl/prefectPonyXL_v6.safetensors"
+      "ckpt_name": "sdxl.safetensors"
     },
     "class_type": "CheckpointLoaderSimple",
     "_meta": {

@@ -30,7 +30,7 @@ Bot permissions needed:
 cd /opt/ComfyUI/models/checkpoints
 ln -sr sdxl/sdx_model.safetensors jarvis/
 ```
-4. Copy example config to `jarvis.conf` and modify to match your setup.
+4. Modify `jarvis.conf` to setup bot token, Ollama settings, and ComfyUI settings.
 5. Modify `system.txt` for Ollama system prompt.
 
 ## Running
@@ -44,10 +44,10 @@ python3 bot.py
 
 ## Bot Commands
 
-* !jarvis positive|negative
+* !jarvis <positive>|<negative>
     * Sends prompt straight to ComfyUI for processing
     * Negative is optional, pipe "|" delimiter
-* !prompt text
+* !prompt <text>
     * Sends text to Ollama for processing then ComfyUI
     * Does not process negatives yet (after pipe "|")
 * !checkpoint
@@ -64,7 +64,7 @@ python3 bot.py
 
 ## ComfyUI
 
-I use dummy node from KJNodes for the "Load Workflow" process. Import `load_workflow.json` into ComfyUI to install missing nodes.
+Dummy node from KJNodes is used for the "Load Workflow" process. Import `load_workflow.json` into ComfyUI to install missing nodes.
 
 ## Workflows
 
@@ -83,7 +83,3 @@ Polls have to wait for embed message to come in with poll winner, then bot will 
 Test your Ollama settings with `test-prompt.py`
 
 The baked in user prompt expects the output to be wrapped in triple quotes `"""`.
-
-## Disclaimer
-
-I am a noob with Python so some errors and weird things may be present. I'm not familiar with asyncio hence the helper scripts and non-pure Python approach.

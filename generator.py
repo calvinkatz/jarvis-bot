@@ -19,6 +19,7 @@ client_id   = str(uuid.uuid4())
 
 comfy_addr  = config['comfyui']['address']
 comfy_ckpt  = config['comfyui']['checkpoint']
+comfy_neg   = config['comfyui']['negative']
 
 ollama_addr = config['ollama']['address']
 ollama_mdl  = config['ollama']['model']
@@ -33,9 +34,6 @@ if len(prompt_text) > 1:
 else:
     positive = prompt_text[0]
     negative = ""
-
-#print(positive)
-#print(negative)
 
 with open("system.txt") as f:
     system_prompt = f.read()
@@ -117,7 +115,7 @@ workflow["4"]["inputs"]["ckpt_name"] = "jarvis/{}".format(comfy_ckpt)
 # Set positive prompt
 workflow["6"]["inputs"]["text"] = "{}".format(positive)
 # Set negatives
-workflow['7']['inputs']['text'] = "loli,lolicon,child,baby,teen,children,prepubescent,bad quality,worst quality,worst detail,sketch,censor,{}".format(negative)
+workflow['7']['inputs']['text'] = "{},{}".format(comfy_neg, negative)
 # Set seed number
 workflow["12"]["inputs"]["seed"] = random.randint(100000000000000, 999999999999999)
 
