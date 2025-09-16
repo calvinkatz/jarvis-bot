@@ -73,7 +73,7 @@ class JarvisCog(commands.Cog):
         if stderr.decode() == "":
             await ctx.send("You have generated {} images!".format(count))
         else:
-            await ctx.send("I counldn't count! :(")
+            await ctx.send("I couldn't count! :(")
 
     @commands.command(aliases=['ckpt'])
     async def checkpoint(self, ctx):
