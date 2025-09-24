@@ -30,9 +30,9 @@ class JarvisCog(commands.Cog):
             f.write(prompt)
         # Run helper script
         if usellm == True:
-            cmd = "./helper.sh {} llm".format(now)
+            cmd = "/usr/bin/env python3 ./generator.py {} llm".format(now)
         else:
-            cmd = "./helper.sh {}".format(now)
+            cmd = "/usr/bin/env python3 ./generator.py {}".format(now)
         proc = await asyncio.create_subprocess_shell(
             cmd,
             stdout=asyncio.subprocess.PIPE,
@@ -73,7 +73,7 @@ class JarvisCog(commands.Cog):
         if stderr.decode() == "":
             await ctx.send("You have generated {} images!".format(count))
         else:
-            await ctx.send("I couldn't count! :(")
+            await ctx.send("I counldn't count! :(")
 
     @commands.command(aliases=['ckpt'])
     async def checkpoint(self, ctx):
@@ -111,11 +111,11 @@ class JarvisCog(commands.Cog):
             print("Ending poll")
             await checkpoint_poll.end()
         else:
-            await ctx.send("I counldn't find checkpoints! :(")
+            await ctx.send("I couldn't find checkpoints! :(")
 
     @commands.command()
     async def wc(self, ctx):
-        cmd = "./wc.sh"
+        cmd = "/usr/bin/env python3 ./wc.py"
         proc = await asyncio.create_subprocess_shell(
             cmd,
             stdout=asyncio.subprocess.PIPE,
@@ -141,7 +141,7 @@ class JarvisCog(commands.Cog):
                     config.write(f)
                 print("Checkpoint saved")
                 print("Loading model")
-                cmd = "./load_model.sh"
+                cmd = "/usr/bin/env python3 ./load_model.py"
                 proc = await asyncio.create_subprocess_shell(
                     cmd,
                     stdout=asyncio.subprocess.PIPE,

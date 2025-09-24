@@ -173,3 +173,4 @@ prompts/*
 jarvis.conf
 wc.png
 system.txt
+*.bak

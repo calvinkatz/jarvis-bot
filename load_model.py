@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 import configparser
 import json
 import os
